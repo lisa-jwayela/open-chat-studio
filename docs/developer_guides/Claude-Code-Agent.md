@@ -11,6 +11,17 @@ These workflows use [`anthropics/claude-code-action`](https://github.com/anthrop
 - **Auto-repair Claude PRs** — after Claude opens a PR, CI results and reviewer comments are automatically checked, failures are fixed, and corrections are pushed (one round per PR). [How it works](#automatic-follow-up)
 - **Understand Dependabot updates before merging** — when GitHub Dependabot opens a dependency PR, Claude reads the changelogs, flags breaking changes, and posts a merge recommendation. [How it works](#dependabot-pr-review)
 
+## Practical Examples for Using Claude While Coding
+
+Claude Code agents are useful for specific coding tasks where you want an autonomous agent to handle implementation:
+
+- **Write unit tests for this fix** — if you've made a code change that needs test coverage, create an issue with details about the implementation and ask Claude to write comprehensive unit tests
+- **Fix a code review comment** — instead of manually addressing a reviewer's feedback, post the review comment and ask Claude to implement the fix
+- **Refactor this component** — when refactoring becomes tedious, describe the desired structure and let Claude handle the implementation
+- **Draft a plan for this** — when you have a large feature or refactor to tackle, ask Claude to break it down into steps: "I need to refactor the auth system. Please draft a detailed plan with specific tasks and files to modify"
+- **Add missing error handling** — identify areas lacking proper error handling and have Claude add it systematically across the codebase
+- **Generate API documentation** — for new endpoints or functions, ask Claude to generate comprehensive documentation and docstrings
+
 ## How to Use
 
 ### Which workflow to use
@@ -113,4 +124,4 @@ This workflow can also be triggered manually via **Actions > Claude Dependabot P
 
 ## Maintaining These Workflows
 
-For engineers responsible for extending, debugging, or operating the Claude workflows, see  see `README-claude-workflows.md` in the repository's `.github/workflows` directory.
+For engineers responsible for extending, debugging, or operating the Claude workflows, see `README-claude-workflows.md` in the repository's `.github/workflows` directory.
