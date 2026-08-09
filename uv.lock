@@ -1270,7 +1270,7 @@ wheels = [
 
 [[package]]
 name = "elevenlabs"
-version = "2.40.0"
+version = "2.61.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -1280,9 +1280,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "websockets" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/0a/5c/d1445f6f7958cf12cba297a44879e6054b7423cd0b2f437ac36bf0493c87/elevenlabs-2.40.0.tar.gz", hash = "sha256:84eaf10819950cbacc643b5ecf80400e5b67bb3af79394be9ee70e8d361d4b27", size = 554860, upload-time = "2026-03-23T11:30:41.742Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/99/db/66c8f66886ee8f6e748c9d53fdf031ac803c69076c2c2beaf461856205d5/elevenlabs-2.61.0.tar.gz", hash = "sha256:c110e24d73bffccdcd570106cf22ff8550f84c61836c6493372c8b83ecaf023b", size = 739411, upload-time = "2026-08-05T12:01:10.831Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/15/62/f08985526677486460a86428a933cfe7a2f0b3659698b2bb333d587d96a4/elevenlabs-2.40.0-py3-none-any.whl", hash = "sha256:56e7939da45eff180e9deeeb84ff25dd616a47d55f179f102d964fc8207146f5", size = 1495785, upload-time = "2026-03-23T11:30:39.888Z" },
+    { url = "https://files.pythonhosted.org/packages/0c/f3/a3f4ee76b2d7aeaeb0ba4d8980e8cf88ffe51584bb488a3707e263835456/elevenlabs-2.61.0-py3-none-any.whl", hash = "sha256:fc5ca649309bb68cc0fcabb0c59d63bba04fa4cad070ade96610342ef1f2ea55", size = 1956536, upload-time = "2026-08-05T12:01:08.454Z" },
 ]
 
 [[package]]
@@ -3110,7 +3110,7 @@ requires-dist = [
     { name = "djangorestframework-api-key" },
     { name = "djlint", specifier = ">=1.42.3" },
     { name = "drf-spectacular" },
-    { name = "elevenlabs", specifier = ">=1.0" },
+    { name = "elevenlabs", specifier = ">=2.61.0" },
     { name = "emoji" },
     { name = "fbmessenger" },
     { name = "ffmpeg" },
