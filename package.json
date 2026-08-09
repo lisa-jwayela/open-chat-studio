@@ -94,7 +94,7 @@
     "zustand": "^5.0.13"
   },
   "optionalDependencies": {
-    "cypress": "^15.15.0"
+    "cypress": "^15.20.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
