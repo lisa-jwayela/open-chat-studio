@@ -1270,7 +1270,7 @@ wheels = [
 
 [[package]]
 name = "elevenlabs"
-version = "2.40.0"
+version = "2.60.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -1280,9 +1280,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "websockets" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/0a/5c/d1445f6f7958cf12cba297a44879e6054b7423cd0b2f437ac36bf0493c87/elevenlabs-2.40.0.tar.gz", hash = "sha256:84eaf10819950cbacc643b5ecf80400e5b67bb3af79394be9ee70e8d361d4b27", size = 554860, upload-time = "2026-03-23T11:30:41.742Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/24/a9/d94286f7a78f2f8502dad7ee8f23f8d85fa003bb70f666504abc9bb3eb7b/elevenlabs-2.60.0.tar.gz", hash = "sha256:282b5487514a1580621717f1621d648fc9831bd47f327bb2afd183ab79281495", size = 739565, upload-time = "2026-07-30T12:02:56.716Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/15/62/f08985526677486460a86428a933cfe7a2f0b3659698b2bb333d587d96a4/elevenlabs-2.40.0-py3-none-any.whl", hash = "sha256:56e7939da45eff180e9deeeb84ff25dd616a47d55f179f102d964fc8207146f5", size = 1495785, upload-time = "2026-03-23T11:30:39.888Z" },
+    { url = "https://files.pythonhosted.org/packages/54/4d/896b22604743749278bb1e3e781c226aea11013329f3a6a91c7c72f1b111/elevenlabs-2.60.0-py3-none-any.whl", hash = "sha256:dee787d71a65ed0466ad2fdb0a962699c480b04d1060130ee248a7bd1c5e1df8", size = 1960148, upload-time = "2026-07-30T12:02:54.853Z" },
 ]
 
 [[package]]
@@ -1473,11 +1473,11 @@ resolution-markers = [
     "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
 ]
 dependencies = [
-    { name = "google-auth", marker = "python_full_version >= '3.14'" },
-    { name = "googleapis-common-protos", marker = "python_full_version >= '3.14'" },
-    { name = "proto-plus", marker = "python_full_version >= '3.14'" },
-    { name = "protobuf", marker = "python_full_version >= '3.14'" },
-    { name = "requests", marker = "python_full_version >= '3.14'" },
+    { name = "google-auth" },
+    { name = "googleapis-common-protos" },
+    { name = "proto-plus" },
+    { name = "protobuf" },
+    { name = "requests" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/09/cd/63f1557235c2440fe0577acdbc32577c5c002684c58c7f4d770a92366a24/google_api_core-2.25.2.tar.gz", hash = "sha256:1c63aa6af0d0d5e37966f157a77f9396d820fba59f9e43e9415bc3dc5baff300", size = 166266, upload-time = "2025-10-03T00:07:34.778Z" }
 wheels = [
@@ -1486,8 +1486,8 @@ wheels = [
 
 [package.optional-dependencies]
 grpc = [
-    { name = "grpcio", marker = "python_full_version >= '3.14'" },
-    { name = "grpcio-status", marker = "python_full_version >= '3.14'" },
+    { name = "grpcio" },
+    { name = "grpcio-status" },
 ]
 
 [[package]]
@@ -1500,11 +1500,11 @@ resolution-markers = [
     "python_full_version < '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
 ]
 dependencies = [
-    { name = "google-auth", marker = "python_full_version < '3.14'" },
-    { name = "googleapis-common-protos", marker = "python_full_version < '3.14'" },
-    { name = "proto-plus", marker = "python_full_version < '3.14'" },
-    { name = "protobuf", marker = "python_full_version < '3.14'" },
-    { name = "requests", marker = "python_full_version < '3.14'" },
+    { name = "google-auth" },
+    { name = "googleapis-common-protos" },
+    { name = "proto-plus" },
+    { name = "protobuf" },
+    { name = "requests" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/61/da/83d7043169ac2c8c7469f0e375610d78ae2160134bf1b80634c482fa079c/google_api_core-2.28.1.tar.gz", hash = "sha256:2b405df02d68e68ce0fbc138559e6036559e685159d148ae5861013dc201baf8", size = 176759, upload-time = "2025-10-28T21:34:51.529Z" }
 wheels = [
@@ -1513,8 +1513,8 @@ wheels = [
 
 [package.optional-dependencies]
 grpc = [
-    { name = "grpcio", marker = "python_full_version < '3.14'" },
-    { name = "grpcio-status", marker = "python_full_version < '3.14'" },
+    { name = "grpcio" },
+    { name = "grpcio-status" },
 ]
 
 [[package]]
@@ -1622,12 +1622,12 @@ resolution-markers = [
     "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
 ]
 dependencies = [
-    { name = "google-api-core", version = "2.25.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.14'" },
-    { name = "google-auth", marker = "python_full_version >= '3.14'" },
-    { name = "google-cloud-core", marker = "python_full_version >= '3.14'" },
-    { name = "google-crc32c", marker = "python_full_version >= '3.14'" },
-    { name = "google-resumable-media", marker = "python_full_version >= '3.14'" },
-    { name = "requests", marker = "python_full_version >= '3.14'" },
+    { name = "google-api-core", version = "2.25.2", source = { registry = "https://pypi.org/simple" } },
+    { name = "google-auth" },
+    { name = "google-cloud-core" },
+    { name = "google-crc32c" },
+    { name = "google-resumable-media" },
+    { name = "requests" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/bd/ef/7cefdca67a6c8b3af0ec38612f9e78e5a9f6179dd91352772ae1a9849246/google_cloud_storage-3.4.1.tar.gz", hash = "sha256:6f041a297e23a4b485fad8c305a7a6e6831855c208bcbe74d00332a909f82268", size = 17238203, upload-time = "2025-10-08T18:43:39.665Z" }
 wheels = [
@@ -1644,12 +1644,12 @@ resolution-markers = [
     "python_full_version < '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
 ]
 dependencies = [
-    { name = "google-api-core", version = "2.28.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.14'" },
-    { name = "google-auth", marker = "python_full_version < '3.14'" },
-    { name = "google-cloud-core", marker = "python_full_version < '3.14'" },
-    { name = "google-crc32c", marker = "python_full_version < '3.14'" },
-    { name = "google-resumable-media", marker = "python_full_version < '3.14'" },
-    { name = "requests", marker = "python_full_version < '3.14'" },
+    { name = "google-api-core", version = "2.28.1", source = { registry = "https://pypi.org/simple" } },
+    { name = "google-auth" },
+    { name = "google-cloud-core" },
+    { name = "google-crc32c" },
+    { name = "google-resumable-media" },
+    { name = "requests" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/f4/cd/7e112cf025b2b591067b599e4bfe965df0c12b0cc0afdb5556469bff126d/google_cloud_storage-3.6.0.tar.gz", hash = "sha256:29cc6b9a6c0fc9cdad071e375d540a5a50fbc9a7fad8300fa02fb904f6fe2ca2", size = 17251072, upload-time = "2025-11-17T10:18:29.81Z" }
 wheels = [
@@ -3110,7 +3110,7 @@ requires-dist = [
     { name = "djangorestframework-api-key" },
     { name = "djlint", specifier = ">=1.42.3" },
     { name = "drf-spectacular" },
-    { name = "elevenlabs", specifier = ">=1.0" },
+    { name = "elevenlabs", specifier = ">=2.60.0" },
     { name = "emoji" },
     { name = "fbmessenger" },
     { name = "ffmpeg" },
@@ -4892,8 +4892,8 @@ name = "uvicorn"
 version = "0.35.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "click", marker = "sys_platform != 'emscripten'" },
-    { name = "h11", marker = "sys_platform != 'emscripten'" },
+    { name = "click" },
+    { name = "h11" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/5e/42/e0e305207bb88c6b8d3061399c6a961ffe5fbb7e2aa63c9234df7259e9cd/uvicorn-0.35.0.tar.gz", hash = "sha256:bc662f087f7cf2ce11a1d7fd70b90c9f98ef2e2831556dd078d131b96cc94a01", size = 78473, upload-time = "2025-06-28T16:15:46.058Z" }
 wheels = [
