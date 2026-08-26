@@ -227,7 +227,7 @@ jobs:
 
             If CI passed and there are no actionable review comments:
             1. Comment on the PR noting that no changes were needed
-          claude_args: '--allowedTools "Bash(pnpm run lint:*),Bash(pnpm run type-check:*),Bash(pnpm run build:*),Bash(pnpm run dev:*),Bash(pnpm install:*),Bash(ruff check:*),Bash(ruff format:*),Bash(ruff:*),Bash(ty check:*),Bash(ty:*),Bash(uv run ty:*),Bash(uv run ruff:*),Bash(uv run pytest:*),Bash(uv lock:*),Bash(pytest:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh run view:*),Bash(gh run download:*),Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh api:*),Read,Write,Edit"'
+          claude_args: '--allowedTools "Bash(pnpm run lint:*),Bash(pnpm run type-check:*),Bash(pnpm run build:*),Bash(pnpm run dev:*),Bash(pnpm install:*),Bash(ruff check:*),Bash(ruff format:*),Bash(ruff:*),Bash(ty check:*),Bash(ty:*),Bash(uv run ty:*),Bash(uv run ruff:*),Bash(uv run pytest:*),Bash(uv lock:*),Bash(pytest:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh run view:*),Bash(gh run download:*),Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh api repos/${{ github.repository }}/pulls/*/comments:*),Read,Write,Edit"'
 
       - name: Add followup-done label
         if: always() && steps.check.outputs.skip != 'true' && steps.check.outputs.pr_number != ''
