@@ -28,9 +28,8 @@ function removeTag (name, el, objectInfo) {
 }
 
 /**
- * When an htmx swap creates a new tag editor, only that specific editor should
- * receive focus. Focusing indiscriminately would blur whichever other editor the
- * user may already be typing in.
+ * Only focus the editor htmx just swapped in. Focusing any other newly-found one
+ * would steal focus from an editor the user is already typing in.
  */
 function configureTomSelect(swapTarget) {
   const filter = '.tag-multiselect:not(.tomselected):not(.ts-wrapper)';
@@ -63,15 +62,14 @@ function configureTomSelect(swapTarget) {
 }
 
 /**
- * htmx replaces a tag editor's DOM directly (hx-target="#tag-ui-<id>") without ever
- * calling TomSelect's own destroy(). destroy() is what removes the document-level
- * mousedown listener TomSelect registers per instance for click-outside handling;
- * skipping it leaves that listener (and its closure over the now-detached wrapper)
- * attached to document forever, once per editor ever opened in the session.
+ * htmx swaps out a tag editor's DOM directly, so TomSelect's own destroy() never
+ * runs and its document-level mousedown listener leaks. Checking wrapper.isConnected
+ * catches this regardless of swap style or whether a swap even completed, which a
+ * beforehand guess at the swap target can't.
  */
-function destroyControlsWithin(target) {
+function pruneDetachedControls() {
   controlInstances = controlInstances.filter((control) => {
-    if (target.contains(control.wrapper)) {
+    if (!control.wrapper.isConnected) {
       control.destroy();
       return false;
     }
@@ -81,6 +79,13 @@ function destroyControlsWithin(target) {
 
 export const setupTagSelects = () => {
   configureTomSelect();
-  htmx.on("htmx:beforeSwap", (evt) => { destroyControlsWithin(evt.target) });
-  htmx.on("htmx:afterSwap", (evt) => { configureTomSelect(evt.target) });
+  htmx.on("htmx:afterSwap", (evt) => {
+    pruneDetachedControls();
+    /**
+     * evt.detail.target is the pre-swap target and goes stale on an outerHTML swap
+     * (the element it points to gets replaced); evt.target is the live post-swap
+     * element htmx actually dispatches the event on.
+     */
+    configureTomSelect(evt.target);
+  });
 }
