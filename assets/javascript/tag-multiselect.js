@@ -27,7 +27,12 @@ function removeTag (name, el, objectInfo) {
   };
 }
 
-function configureTomSelect() {
+/**
+ * When an htmx swap creates a new tag editor, only that specific editor should
+ * receive focus. Focusing indiscriminately would blur whichever other editor the
+ * user may already be typing in.
+ */
+function configureTomSelect(swapTarget) {
   const filter = '.tag-multiselect:not(.tomselected):not(.ts-wrapper)';
   document.querySelectorAll(filter).forEach((el) => {
     let objectInfo = el.getAttribute("data-info");
@@ -51,11 +56,31 @@ function configureTomSelect() {
       }
     });
     controlInstances.push(control);
-    control.focus();
+    if (!swapTarget || swapTarget.contains(el)) {
+      control.focus();
+    }
+  });
+}
+
+/**
+ * htmx replaces a tag editor's DOM directly (hx-target="#tag-ui-<id>") without ever
+ * calling TomSelect's own destroy(). destroy() is what removes the document-level
+ * mousedown listener TomSelect registers per instance for click-outside handling;
+ * skipping it leaves that listener (and its closure over the now-detached wrapper)
+ * attached to document forever, once per editor ever opened in the session.
+ */
+function destroyControlsWithin(target) {
+  controlInstances = controlInstances.filter((control) => {
+    if (target.contains(control.wrapper)) {
+      control.destroy();
+      return false;
+    }
+    return true;
   });
 }
 
 export const setupTagSelects = () => {
   configureTomSelect();
-  htmx.on("htmx:afterSwap", () => { configureTomSelect() });
+  htmx.on("htmx:beforeSwap", (evt) => { destroyControlsWithin(evt.target) });
+  htmx.on("htmx:afterSwap", (evt) => { configureTomSelect(evt.target) });
 }
