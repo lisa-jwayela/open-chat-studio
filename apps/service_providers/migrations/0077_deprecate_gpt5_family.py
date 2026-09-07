@@ -11,10 +11,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        # llm_model_migration() moved to 0078_add_gemini_3_8_flash so it runs only once per deploy
-        # (the newest migration re-syncs the whole model list, which marks gpt-5/-mini/-nano/-pro
-        # deprecated too). The notification reads the deprecation flags from
-        # DEFAULT_LLM_PROVIDER_MODELS rather than the DB, so it does not depend on that re-sync
-        # having run first.
+        # Notify affected teams about the deprecation and recommended replacements.
         RunDataMigration("notify_deprecated_models", command_options={"force": True}),
     ]
