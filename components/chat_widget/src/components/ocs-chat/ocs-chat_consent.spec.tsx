@@ -387,6 +387,31 @@ describe('hold and release', () => {
     expect(page.rootInstance['heldMessage']).toBeUndefined();
   });
 
+  it('returns the composer when a bound session is rejected while the panel is open', async () => {
+    installWebCrypto();
+    const page = await newSpecPage({
+      components: [OcsChat],
+      html: `<open-chat-studio-widget chatbot-id="bot" api-base-url="http://x" visible="true" session-id="host-session" session-token="host-tok"></open-chat-studio-widget>`,
+    });
+    await page.waitForChanges();
+    const { SessionAccessError } = jest.requireActual('../../services/chat-session-service');
+    stubService(page, { recordConsent: jest.fn().mockRejectedValue(new SessionAccessError(403, 'session_token_required', 'Session token required')) });
+
+    // A bound session never starts one, so polling is what hands it the consent block.
+    page.rootInstance['activeSessionId'] = 'host-session';
+    await page.rootInstance['applyConsent'](consentBlock);
+    await page.rootInstance['sendMessage']('hello');
+    await settle(page);
+    expect(consentPanel(page)).not.toBeNull();
+
+    (page.root.shadowRoot.querySelector('.consent-agree') as HTMLButtonElement).click();
+    await settle(page);
+
+    expect(consentPanel(page)).toBeNull();
+    expect(page.rootInstance['heldMessage']).toBeUndefined();
+    expect(page.rootInstance['activeSessionId']).toBe('host-session');
+  });
+
   it('asks again for a stored acceptance after the session is rejected and restarted', async () => {
     const page = await mountWidget('persistent-session="true"');
     window.localStorage.setItem('ocs-chat-consent-bot', '7');

@@ -504,6 +504,13 @@ export class OcsChat {
     this.isUploadingFiles = false;
     this.typingProgressMessage = '';
 
+    // Session-scoped, so it clears for a bound session too: the panel cannot act without
+    // a session, and it covers the error. The stored acceptance stays, so a fresh session
+    // re-posts it.
+    this.consent = undefined;
+    this.heldMessage = undefined;
+    this.autoConsentAttempted = undefined;
+
     if (this.isSessionBound()) {
       this.addErrorMessage(this.translationManager.get('status.sessionError', 'This chat session is no longer available.'));
       return;
@@ -513,12 +520,6 @@ export class OcsChat {
     this.activeSessionId = undefined;
     this.applySessionToken(undefined);
     this.clearSessionStorage();
-    // The panel cannot act without a session, and its button would sit inert over the
-    // composer the error asks the participant to resend from. The stored acceptance
-    // stays, so the fresh session re-posts it.
-    this.consent = undefined;
-    this.heldMessage = undefined;
-    this.autoConsentAttempted = undefined;
     this.addErrorMessage(this.translationManager.get('status.sessionExpired', 'Your chat session expired. Starting a new chat — please resend your message.'));
   }
 
