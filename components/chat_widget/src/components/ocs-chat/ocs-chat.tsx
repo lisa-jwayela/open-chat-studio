@@ -2347,7 +2347,7 @@ export class OcsChat {
             )}
 
             {/* Chat Content */}
-            <div class={`chat-content${this.shouldShowConsentPanel() ? ' chat-content-consent' : ''}`}>
+            <div class="chat-content">
               {/* Banner (top) */}
               {this.renderBanner('top')}
 

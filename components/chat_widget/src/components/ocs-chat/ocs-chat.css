@@ -492,12 +492,6 @@
     @apply flex flex-col flex-grow overflow-hidden;
   }
 
-  .chat-content-consent .messages-container {
-    /* Consent blocks the conversation, and on a first send the list behind it is empty,
-       so the form has the whole window. */
-    display: none;
-  }
-
   .chat-banner {
     /* Always-visible, non-dismissable notice banner */
     @apply w-full text-center break-words shrink-0;
@@ -644,11 +638,6 @@
     /* The chat area clips what does not fit, and the consent panel is the only thing in
        here that can outgrow it, so the shrink belongs to this state alone. */
     min-height: 0;
-    flex: 1 1 auto;
-    /* A short form sits at the bottom, where the composer it replaces is. */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
   }
 
   .input-container {
