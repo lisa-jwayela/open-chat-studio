@@ -128,7 +128,7 @@ export class FileAttachmentManager {
         // Files are left unmarked on a consent refusal: they are re-uploaded once consent is
         // recorded. A refusal that names consent but carries no block cannot raise the panel,
         // so the files carry the error and stop the send. Either way it is not a token
-        // rejection, which would discard the session and restart it into the same refusal.
+        // rejection.
         const namesConsent = response.status === 403 && body.code === 'consent_required';
         const consentRefused = namesConsent && !!body.consent;
         return {

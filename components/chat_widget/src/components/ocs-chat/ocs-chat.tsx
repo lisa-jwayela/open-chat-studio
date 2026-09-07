@@ -1003,9 +1003,8 @@ export class OcsChat {
   }
 
   /**
-   * Remove the bubble this send appended, if it got that far. Matched by identity: an
-   * upload refused for consent throws before the bubble exists, and matching on the text
-   * would take an earlier message the participant had already sent.
+   * Remove the bubble this send appended, if it got that far. An upload refused for
+   * consent throws before the bubble exists, so there may be nothing to remove.
    */
   private dropOptimisticUserMessage(message: ChatMessage | undefined): void {
     if (!message) return;
